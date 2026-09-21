@@ -25,15 +25,15 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 - rolebinding-developer.yaml
 
 ### Команды генерации сертификатов
-- Генерируем приватный ключ пользователя developer:
+- Генерируем приватный ключ пользователя pmymaxi:
 ```bash
 openssl genrsa -out developer.key 2048
 ```
 - Создаём CSR запрос на выпуск сертификата:
 ```bash
-openssl req -new key developer.key -out developer.csr -subj "/CN=developer"
+openssl req -new key developer.key -out developer.csr -subj "/CN=pmymaxi"
 ```
-- Подписываем запрос на выпуск сертификата пользователя developer:
+- Подписываем запрос на выпуск сертификата пользователя pmymaxi:
 ```bash
 openssl x509 -req -in developer.csr -CA /var/snap/microk8s/current/certs/ca.crt -CAkey /var/snap/microk8s/current/certs/ca.key -CAcreateserial -out developer.crt -days 365
 ```
